@@ -1,0 +1,31 @@
+apply plugin: "groovy"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "org.codehaus.groovy:groovy-all:2.4.7"
+
+    def gebVersion = "1.1.1"
+    def seleniumVersion = "2.52.0"
+
+    // If using Spock, need to depend on geb-spock
+    testCompile "org.gebish:geb-spock:$gebVersion"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+
+    // If using JUnit, need to depend on geb-junit (3 or 4)
+    testCompile "org.gebish:geb-junit4:1.1.1"
+    testCompile "junit:junit-dep:4.8.2"
+
+    // Need a driver implementation
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+}
+
+test {
+    include "**/*Spec*"
+    systemProperties "geb.build.reportsDir": "$reportsDir/geb"
+
+    //TODO: Mac this platform agnostic, atm is MAC only
+    systemProperty "webdriver.chrome.driver", project.buildscript.sourceFile.parent + "/drivers/chromedriver"
+}
