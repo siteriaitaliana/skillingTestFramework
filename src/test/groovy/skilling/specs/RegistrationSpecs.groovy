@@ -20,7 +20,7 @@ class RegistrationSpecs extends GebSpec {
         assert false : "User registration scenario still has some page objects missing"
     }
 
-    @wip @Unroll
+    @security @smoke @Unroll
     def "weak password are not allowed"() {
         when:
         to HomePage

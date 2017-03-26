@@ -7,6 +7,7 @@ import skilling.pages.registration.CreateAccountPage
  * Created by lorenzo on 25/03/2017.
  */
 class HomePage extends Page {
+    //TODO: move into config file
     static url = "https://propero:forex2016@stg.pro.skilling.com/"
 
     static at = {

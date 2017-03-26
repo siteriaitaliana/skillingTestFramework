@@ -5,7 +5,10 @@ waiting {
     retryInterval = 0.5
 }
 
-reportsDir = "geb-reports"
+atCheckWaiting = true
+
+unexpectedPages = [PageNotFoundPage, InternalServerErrorPage]
+reportOnTestFailureOnly = true
 
 
 // #### Test Data #### //
