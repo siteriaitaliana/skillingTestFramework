@@ -24,7 +24,6 @@ dependencies {
 
 test {
     include "**/*Spec*"
-    systemProperties "geb.build.reportsDir": "$reportsDir/geb"
 
     //TODO: Mac this platform agnostic, atm is MAC only
     //TODO: There shouldn't be any binaries versioned, pull them dynamically instead!
